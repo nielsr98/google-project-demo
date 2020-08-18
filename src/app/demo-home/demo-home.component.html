@@ -1,1 +1,17 @@
-<p>demo-home works!</p>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer class="example-sidenav" mode="side" [opened]="true">
+        <div cdkListbox #navList="cdkListbox" class="nav-listbox">
+            <div cdkOption class="nav-option" [value]="'listbox'">Listbox Examples</div>
+            <div cdkOption class="nav-option" [value]="'combobox'">Combobox Examples</div>
+            <div cdkOption class="nav-option" [value]="'search'">Google Search</div>
+            <div cdkOption class="nav-option" [value]="'images'">Google Images</div>
+        </div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <router-outlet class="sidenavContent">
+
+        </router-outlet>
+    </div>
+
+</mat-drawer-container>

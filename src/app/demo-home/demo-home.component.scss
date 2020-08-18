@@ -1,0 +1,38 @@
+.example-container {
+  width: 100%;
+  height: 100%;
+}
+
+.example-sidenav-content {
+  height: 100%;
+  width: 100%;
+}
+
+.example-sidenav {
+  width: 200px;
+}
+
+.nav-listbox {
+  width: 100%;
+}
+
+.nav-option {
+  width: 100%;
+  height: 30px;
+
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.nav-option:focus {
+  outline: none;
+}
+
+.nav-listbox .cdk-option-active {
+  background: rgb(220, 220, 220);
+}
+
+.nav-listbox .cdk-option-selected {
+  background: rgb(180, 180, 180);
+}
+

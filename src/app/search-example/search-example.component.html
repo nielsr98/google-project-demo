@@ -1,0 +1,16 @@
+<div class="google-wrapper">
+    <img id="google-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+    <br>
+    <div id="search-bar" [ngClass]="{'opened': searchCombobox.isOpen()}">
+        <mat-icon id="search-icon">search</mat-icon>
+        <input #searchInput id="search-combobox" cdkCombobox #searchCombobox='cdkCombobox'
+               (input)="searchValue.next(searchInput.value)"
+               [cdkComboboxTriggerFor]="searchPanel"
+               [openActions]="'downKey click'">
+    </div>
+    <ng-template cdkComboboxPanel  #searchPanel="cdkComboboxPanel">
+        <ul cdkListbox id="search-listbox" [parentPanel]="searchPanel">
+            <li cdkOption class="search-options" *ngFor="let query of getResult(searchValue | async)" [value]="query">{{query}}</li>
+        </ul>
+    </ng-template>
+</div>
