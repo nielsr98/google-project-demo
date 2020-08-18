@@ -1,9 +1,9 @@
 <div class="wrapper">
+    <b>Basic listbox</b>
     <ul cdkListbox class="demo-listbox"
-        [multiple]="multiSelectable"
-        [useActiveDescendant]="activeDescendant">
+        [multiple]="multiSelectable">
         <li cdkOption class="basic-option">Apple</li>
-        <li cdkOption class="basic-option">Orange</li>
+        <li cdkOption class="basic-option" [disabled]="disabledOption2">Orange</li>
         <li cdkOption class="basic-option">Grapefruit</li>
         <li cdkOption class="basic-option">Peach</li>
     </ul>
@@ -11,13 +11,14 @@
     <br>
     <button (click)="toggleMultiple()">Toggle Multiple</button>
     <br>
-    <button (click)="toggleActiveDescendant()">Toggle Active Descendant</button>
+    <button (click)="toggleDisabledOption()">{{disabledOption2 ? 'Enable' : 'Disable'}} Option 2</button>
 
-    <br> <br>
+    <br> <br> <br>
 
+    <b>Filter chip styled listbox</b>
     <ul cdkListbox class="filter-chip-listbox"
         [multiple]="true"
-        [useActiveDescendant]="false">
+        [listboxOrientation]="'horizontal'">
         <li cdkOption class="chip-option">Filter 1</li>
         <li cdkOption class="chip-option">Filter 2</li>
         <li cdkOption class="chip-option">Filter 3</li>

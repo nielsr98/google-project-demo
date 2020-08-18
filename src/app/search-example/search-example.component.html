@@ -10,7 +10,26 @@
     </div>
     <ng-template cdkComboboxPanel  #searchPanel="cdkComboboxPanel">
         <ul cdkListbox id="search-listbox" [parentPanel]="searchPanel">
-            <li cdkOption class="search-options" *ngFor="let query of getResult(searchValue | async)" [value]="query">{{query}}</li>
+            <li cdkOption
+                class="search-options"
+                *ngFor="let query of getResult(searchValue | async)"
+                [value]="query"
+                (click)="handleQuery(query)"
+                (keydown)="handleKeydown($event, query)"
+            >{{query}}</li>
         </ul>
     </ng-template>
+
+    <div class="mobile-screen" *ngIf="showRestaurantView">
+        <div class="filter-bar">
+            <ul cdkListbox class="filter-chip-listbox" #filterListbox="cdkListbox"
+                [multiple]="true"
+                [listboxOrientation]="'horizontal'">
+                <li cdkOption class="chip-option" *ngFor="let type of restaurantFilters" [value]="type">{{type}}</li>
+            </ul>
+        </div>
+        <div class="restaurant-results">
+            <div class="restaurant-option" *ngFor="let restaurant of filteredRestaurants">{{restaurant.name}}</div>
+        </div>
+    </div>
 </div>

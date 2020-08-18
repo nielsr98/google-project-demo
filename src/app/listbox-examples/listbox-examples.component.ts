@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListboxExamplesComponent implements OnInit {
   multiSelectable = false;
-  activeDescendant = false;
+  disabledOption2 = false;
 
   constructor() { }
 
@@ -18,8 +18,7 @@ export class ListboxExamplesComponent implements OnInit {
     this.multiSelectable = !this.multiSelectable;
   }
 
-  toggleActiveDescendant() {
-    this.activeDescendant = !this.activeDescendant;
+  toggleDisabledOption() {
+    this.disabledOption2 = !this.disabledOption2;
   }
-
 }

@@ -8,8 +8,10 @@
   list-style-type: none;
   border: 1px solid black;
   cursor: default;
-  padding: 2px;
+  padding: 0px;
   background: white;
+  margin-top: 0px;
+  width: 100px;
 }
 
 .demo-listbox .cdk-option-active {
@@ -17,5 +19,84 @@
 }
 
 .demo-listbox .cdk-option-selected {
-  background: cornflowerblue;
+  color: cornflowerblue;
+}
+
+.simple-option {
+  height: 20px;
+  width: 90%;
+  padding-left: 10px;
+}
+
+.simple-option:focus {
+  outline: none;
+}
+
+.flavor-popup {
+  background: white;
+  width: 300px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
+  border-radius: 3px;
+}
+
+#flavor-header-bar {
+  width: 98%;
+  height: 30px;
+  border-bottom: 1px solid darkgrey;
+  padding-top: 9px;
+  padding-left: 5px;
+}
+
+.flavor-input {
+  width: 92%;
+  padding: 5px;
+  margin: 5px;
+}
+
+#flavor-list {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid darkgrey;
+}
+
+.flavor-option {
+  height: 25px;
+  padding-left: 10px;
+  width: 97%;
+  padding-top: 5px;
+}
+
+.flavor-option:focus {
+  outline: none;
+}
+
+.mat-icon {
+  float: right;
+  margin-right: 10px;
+}
+
+.mat-icon:hover {
+  cursor: pointer;
+}
+
+.flavor-footer {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 12px;
+}
+
+#flavor-apply {
+  background: dodgerblue;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+#flavor-cancel {
+  background: transparent;
+  color: darkgrey;
+  padding: 5px;
+  border: none;
+  margin-right: 10px;
 }

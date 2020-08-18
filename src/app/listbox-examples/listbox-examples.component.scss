@@ -10,6 +10,7 @@
   cursor: default;
   padding: 0px;
   width: 100px;
+  background: white;
 }
 
 .demo-listbox .cdk-option-active {
@@ -17,7 +18,11 @@
 }
 
 .demo-listbox .cdk-option-selected {
-  background: cornflowerblue;
+  color: cornflowerblue;
+}
+
+.demo-listbox .cdk-option-disabled {
+  color: darkgrey;
 }
 
 .filter-chip-listbox {
@@ -63,5 +68,5 @@
 }
 
 .filter-chip-listbox .cdk-option-selected {
-  background: cornflowerblue;
+  color: cornflowerblue;
 }

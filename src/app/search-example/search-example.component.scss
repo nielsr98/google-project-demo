@@ -5,11 +5,40 @@
   flex-direction: column;
   align-items: center;
   background: rgb(255, 255, 255);
-  padding-top: 20px;
+}
+
+.mobile-screen {
+  border-color: rgb(100, 100, 100);
+  border-radius: 36px;
+  border-style: solid;
+  border-width: 60px 16px;
+  height: 640px;
+  margin: 16px;
+  width: 360px;
+}
+
+.filter-bar {
+  width: 360px;
+  height: 60px;
+  overflow: auto;
+  border-bottom: 1px solid darkgrey;
+}
+
+.restaurant-results {
+  width: 360px;
+  height: 640px;
+}
+
+.restaurant-option {
+  width: 340px;
+  height: 40px;
+  padding: 15px 0px 0px 20px;
+  border-bottom: 1px solid darkgrey;
 }
 
 #google-logo {
   width: 250px;
+  margin-top: 20px;
 }
 
 #search-bar {
@@ -96,3 +125,40 @@
   margin-left: 9px;
   color: rgb(150, 150, 150);
 }
+
+.filter-chip-listbox {
+  list-style-type: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+}
+
+.chip-option {
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+
+  padding: 5px 15px 5px 15px;
+  margin: 0px 5px 0px 5px;
+
+  cursor: default;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-option:focus {
+  outline: none;
+}
+
+.filter-chip-listbox .cdk-option-selected {
+  color: rgb(8, 110, 212);
+  background: rgb(220, 236, 252);
+}
+
+.chip-option:hover {
+  background: lightgrey;
+}
+
