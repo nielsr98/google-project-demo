@@ -36,3 +36,28 @@
   background: rgb(180, 180, 180);
 }
 
+mat-nav-list a:before {
+  position: absolute;
+  left: 0%;
+  width: 0;
+  height: 48px;
+  background: rgb(52, 221, 170);
+  content: '';
+  transition: width 0.30s ease-in-out;
+}
+
+
+mat-nav-list a {
+  transition: 0.3s ease-in-out;
+  padding-left: 8px;
+  color: black;
+}
+
+mat-nav-list a:hover:before {
+  width: 16px;
+}
+
+mat-nav-list a:hover {
+  padding-left: 16px;
+  transition: 0.3s ease-in-out;
+}

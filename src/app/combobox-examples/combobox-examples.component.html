@@ -14,6 +14,7 @@
         </div>
     </ng-template>
 
+
     <br> <br> <br>
 
     <b>Combobox with listbox (toggles on click)</b>
@@ -31,20 +32,23 @@
         </ul>
     </ng-template>
 
+
     <br> <br> <br>
 
     <b>Input Combobox with listbox (opens on downKey or click)</b>
     <br>
+
     <input #fruitInput cdkCombobox #fruitCombobox='cdkCombobox'
            (input)="inputValue.next(fruitInput.value)"
            [cdkComboboxTriggerFor]="fruitPanel"
-           [openActions]="'downKey click'">
+           [openActions]="'downKey'">
 
     <ng-template cdkComboboxPanel #fruitPanel="cdkComboboxPanel">
         <ul cdkListbox class="demo-listbox" [parentPanel]="fruitPanel">
             <li cdkOption class="simple-option" *ngFor="let fruit of getFruit(inputValue | async)" [value]="fruit">{{fruit}}</li>
         </ul>
     </ng-template>
+
 
     <br> <br> <br>
 
@@ -74,4 +78,3 @@
 
     </ng-template>
 </div>
-

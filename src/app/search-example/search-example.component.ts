@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -14,12 +15,13 @@ import {CdkListbox, ListboxSelectionChangeEvent} from "@angular/cdk-experimental
   templateUrl: './search-example.component.html',
   styleUrls: ['./search-example.component.scss']
 })
-export class SearchExampleComponent implements AfterViewInit {
+export class SearchExampleComponent implements AfterViewInit , AfterViewChecked{
 
   @ViewChild('searchCombobox', {static: true}) private readonly _searchCombobox: CdkCombobox<string>;
   @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
 
   @ViewChild('filterListbox', {static: false}) private readonly _filterListbox: CdkListbox<string>;
+  oldFilterListbox: CdkListbox<string>;
 
   readonly searchValue = new Subject<string>();
 
@@ -74,38 +76,45 @@ export class SearchExampleComponent implements AfterViewInit {
       this.searchInput.nativeElement.value = event.toString();
       this.searchValue.next(event.toString());
     });
+  }
 
-    this._filterListbox.selectionChange.subscribe((event: ListboxSelectionChangeEvent<string>) => {
-      this.updateFilterChipOrder();
-      const option = event.option;
-      if (option.selected) {
-        if (option.value === 'Nearby') {
-          this.filteringNearby = true;
-        } else if (option.value === 'Open') {
-          this.filteringOpen = true;
-        } else if (option.value === 'Takeout') {
-          this.filteringTakeout = true;
-        } else {
-          this.cuisineFilters.push(option.value);
-        }
-      } else {
-        if (option.value === 'Nearby') {
-          this.filteringNearby = false
-        } else if (option.value === 'Open') {
-          this.filteringOpen = false;
-        } else if (option.value === 'Takeout') {
-          this.filteringTakeout = false;
-        } else {
-          const index = this.cuisineFilters.indexOf(option.value);
-          if (index !== -1) {
-            this.cuisineFilters.splice(index, 1);
+  ngAfterViewChecked() {
+    if (this.oldFilterListbox !== this._filterListbox) {
+      if (this._filterListbox) {
+        this.oldFilterListbox = this._filterListbox;
+        this._filterListbox.selectionChange.subscribe((event: ListboxSelectionChangeEvent<string>) => {
+          this.updateFilterChipOrder();
+          const option = event.option;
+          if (option.selected) {
+            if (option.value === 'Nearby') {
+              this.filteringNearby = true;
+            } else if (option.value === 'Open') {
+              this.filteringOpen = true;
+            } else if (option.value === 'Takeout') {
+              this.filteringTakeout = true;
+            } else {
+              this.cuisineFilters.push(option.value);
+            }
+          } else {
+            if (option.value === 'Nearby') {
+              this.filteringNearby = false
+            } else if (option.value === 'Open') {
+              this.filteringOpen = false;
+            } else if (option.value === 'Takeout') {
+              this.filteringTakeout = false;
+            } else {
+              const index = this.cuisineFilters.indexOf(option.value);
+              if (index !== -1) {
+                this.cuisineFilters.splice(index, 1);
+              }
+
+            }
           }
 
-        }
+          this.updateRestaurants();
+        });
       }
-
-      this.updateRestaurants();
-    });
+    }
   }
 
   updateFilterChipOrder() {
